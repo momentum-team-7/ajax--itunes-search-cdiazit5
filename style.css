@@ -1,0 +1,33 @@
+header {
+    border: 3px solid black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.search-bar-row {
+    border: 3px solid black;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.audio-preview {
+    border:  3px solid black;
+    margin-bottom: 15px;
+}
+
+.container {
+    border: 5px solid purple;
+}
+
+.song-container {
+    border: 2px solid orangered;
+    text-align: center;
+    width: 32%;
+}
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
