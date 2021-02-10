@@ -1,33 +1,51 @@
+* {
+    font-family:'Courier New', Courier, monospace
+}
+
 header {
     border: 3px solid black;
     margin-bottom: 20px;
     margin-top: 20px;
+    font-size: 50px;
+    text-align: center;
 }
 
 .search-bar-row {
-    border: 3px solid black;
+    /* border: 3px solid black; */
     padding: 5px;
     margin-bottom: 15px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
 .audio-preview {
     border:  3px solid black;
     margin-bottom: 15px;
+    padding: 10px;
 }
 
 .container {
-    border: 5px solid purple;
+    /* border: 5px solid purple; */
 }
 
 .song-container {
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
     text-align: center;
     width: 32%;
+    height:fit-content;
 }
 
 .search-results {
+    border:  4px solid rebeccapurple;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+}
+
+input.search-field {
+    width: 225px;
 }

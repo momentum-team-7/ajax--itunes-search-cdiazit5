@@ -28,9 +28,9 @@ function renderResults(song) {
     songContainer.className = 'song-container'
 
 
-    // let songImg = document.createElement('img');
-    // songImg.classname = 'song-image';
-    // songImg.src = song.artworkUrl100;
+    let songImg = document.createElement('img');
+    songImg.classname = 'song-image';
+    songImg.src = song.artworkUrl100;
 
     let songName = document.createElement('p');
     songName.classname = 'song-name';
@@ -40,11 +40,12 @@ function renderResults(song) {
     artistName.classname = 'artist-name'
     artistName.innerHTML = song.artistName
 
-    
 
 
+    songContainer.appendChild(songImg)
     songContainer.appendChild(songName);
     songContainer.appendChild(artistName)
+
 
 
 
