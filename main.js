@@ -1,11 +1,24 @@
 const url = 'https://itunes.apple.com/search?term='
+// const tempUrl = 'https://proxy-itunes-api.glitch.me/search?term='
 const form = document.querySelector('#search-form')
 const searchResults = document.querySelector('.search-results')
+let audioPreview = document.querySelector('audio')
 
 form.addEventListener('submit', e => {
-    e.preventDefault()
-    getSongs();
+    e.preventDefault();
+    clearResults()
+    getSongs()
+    
 })
+
+document.addEventListener('click', e => {
+    if (e.target.classname === "song-container") {
+        console.log(e.target.parentElement.id)
+        audioPreview.src = e.target.id
+        
+    }
+})
+
 
 function getSongs() {
     let userSearch = document.querySelector(".search-field").value
@@ -15,24 +28,32 @@ function getSongs() {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // console.log(data.results[0].artistViewURL)
             for (let song of data.results) {
                 renderResults(song);
             }
         })
 }
 
+function clearResults() {
+    let songs = document.querySelectorAll('.song-container')
+    for (let song of songs) {
+        song.remove();
+    }
+}
+
+
 function renderResults(song) {
 
     let songContainer = document.createElement('div')
     songContainer.className = 'song-container'
+    songContainer.id = song.previewUrl
 
 
     let songImg = document.createElement('img');
     songImg.classname = 'song-image';
     songImg.src = song.artworkUrl100;
 
-    let songName = document.createElement('p');
+    let songName = document.createElement('h4');
     songName.classname = 'song-name';
     songName.innerHTML = song.trackName;
 

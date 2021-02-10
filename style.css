@@ -31,10 +31,11 @@ header {
 }
 
 .song-container {
-    /* border: 2px solid orangered; */
+    border: 2px solid orangered;
     text-align: center;
     width: 32%;
     height:fit-content;
+    padding: 2px; 
 }
 
 .search-results {
@@ -48,4 +49,9 @@ header {
 
 input.search-field {
     width: 225px;
+}
+
+.audio-preview {
+    display: flex;
+    justify-content: center;
 }
