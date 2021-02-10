@@ -1,5 +1,5 @@
-const url = 'https://itunes.apple.com/search?term='
-// const tempUrl = 'https://proxy-itunes-api.glitch.me/search?term='
+// const url = 'https://itunes.apple.com/search?term='
+const url = 'https://proxy-itunes-api.glitch.me/search?term='
 const form = document.querySelector('#search-form')
 const searchResults = document.querySelector('.search-results')
 let audioPreview = document.querySelector('audio')
@@ -11,10 +11,11 @@ form.addEventListener('submit', e => {
     
 })
 
-document.addEventListener('click', e => {
-    if (e.target.classname === "song-container") {
-        console.log(e.target.parentElement.id)
-        audioPreview.src = e.target.id
+searchResults.addEventListener('click', e => {
+    console.log(e.target.parentElement.id)
+    if (e.target.parentElement.className === "song-container") {
+        
+        audioPreview.src = e.target.parentElement.id
         
     }
 })
@@ -29,8 +30,10 @@ function getSongs() {
         .then(data => {
             console.log(data);
             for (let song of data.results) {
-                renderResults(song);
+                if ( song.trackName !== undefined)
+                    renderResults(song);
             }
+            // console.log(data.results.trackName)
         })
 }
 
@@ -48,7 +51,6 @@ function renderResults(song) {
     songContainer.className = 'song-container'
     songContainer.id = song.previewUrl
 
-
     let songImg = document.createElement('img');
     songImg.classname = 'song-image';
     songImg.src = song.artworkUrl100;
@@ -61,14 +63,9 @@ function renderResults(song) {
     artistName.classname = 'artist-name'
     artistName.innerHTML = song.artistName
 
-
-
     songContainer.appendChild(songImg)
     songContainer.appendChild(songName);
     songContainer.appendChild(artistName)
-
-
-
 
     searchResults.appendChild(songContainer);
 }

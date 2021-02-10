@@ -1,13 +1,15 @@
 * {
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
+    box-sizing: border-box;
 }
 
 header {
-    border: 3px solid black;
+    border: 3px solid rebeccapurple;
     margin-bottom: 20px;
     margin-top: 20px;
     font-size: 50px;
     text-align: center;
+    background-image: linear-gradient(to left, #7FFFD4, #FFF8DC)
 }
 
 .search-bar-row {
@@ -24,6 +26,7 @@ header {
     border:  3px solid black;
     margin-bottom: 15px;
     padding: 10px;
+    background-image: linear-gradient(to right, #7FFFD4, #FFF8DC)
 }
 
 .container {
@@ -31,20 +34,22 @@ header {
 }
 
 .song-container {
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
     text-align: center;
     width: 32%;
     height:fit-content;
-    padding: 2px; 
+    padding: 2px;
+    margin-bottom: 30px;
 }
 
 .search-results {
-    border:  4px solid rebeccapurple;
+    /* border:  4px solid rebeccapurple; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    min-height: 500px;
 }
 
 input.search-field {
@@ -54,4 +59,13 @@ input.search-field {
 .audio-preview {
     display: flex;
     justify-content: center;
+}
+
+.search-field {
+    padding: 10px;
+    border-radius: 25px;
+}
+
+#search-button {
+    border-radius: 25px;
 }
