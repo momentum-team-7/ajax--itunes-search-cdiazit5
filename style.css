@@ -1,15 +1,21 @@
 * {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Lexend Mega', sans-serif;
     box-sizing: border-box;
+    background-color: #F0FFFF;
 }
 
 header {
-    border: 3px solid rebeccapurple;
+    border: 3px solid black;
     margin-bottom: 20px;
     margin-top: 20px;
-    font-size: 50px;
+    font-size: 75px;
+    font-family:cursive;
+    color: white;
     text-align: center;
-    background-image: linear-gradient(to left, #7FFFD4, #FFF8DC)
+    /* background-image: linear-gradient(to left, #7FFFD4, #FFF8DC) */
+    background-image: url('Vinyl-records.jpg');
+    background-size:cover;
+    min-height: 300px;
 }
 
 .search-bar-row {
@@ -59,13 +65,20 @@ input.search-field {
 .audio-preview {
     display: flex;
     justify-content: center;
+    
 }
 
 .search-field {
     padding: 10px;
     border-radius: 25px;
-}
+    width: 300px;
+}   
 
 #search-button {
     border-radius: 25px;
+}
+
+#search-button:hover {
+    background-color: #7FFFD4;
+    size: 200px;
 }
