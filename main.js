@@ -23,18 +23,42 @@ searchResults.addEventListener('click', e => {
 
 function getSongs() {
     let userSearch = document.querySelector(".search-field").value
-    // let tempUrl = 'https://proxy-itunes-api.glitch.me/search?term='
+    let tempUrl = 'https://proxy-ituni.glitch.me/seach?term='
 
     fetch (url + userSearch + "&limit=12")
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            for (let song of data.results) {
-                if ( song.trackName !== undefined)
-                    renderResults(song);
-            }
-            // console.log(data.results.trackName)
+            if (data.results.length > 0) {
+                for (let song of data.results) {
+                    renderResults(song)
+                }
+            } else {
+                noResults()
+            } 
         })
+    .catch(error => {
+        catchError()})
+    }
+
+function catchError() {
+    let songContainer = document.createElement('div')
+    songContainer.className = 'song-container'
+    // let songContainer = document.querySelector('song-container')
+    let errorEl = document.createElement('p')
+    errorEl.innerText = 'Error'
+    songContainer.appendChild(errorEl)
+    searchResults.appendChild(songContainer)
+}
+
+function noResults() {
+    let songContainer = document.createElement('div')
+    songContainer.className = 'song-container'
+    // let songContainer = document.querySelector('song-container')
+    let errorEl = document.createElement('p')
+    errorEl.innerText = 'No results'
+    songContainer.appendChild(errorEl)
+    searchResults.appendChild(songContainer)
 }
 
 function clearResults() {
